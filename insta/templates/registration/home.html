@@ -7,16 +7,15 @@
     <div class="row signup-page">
         <div class="col-md-6 home">
             <div class="lay">
-                
             </div>
             <img src="/static/images/ig.png" alt="Phone images">
         </div>
-        <div class="col-md-6">
+    <div class="col-md-6">
             <div class="signup-fields">
                 <div class="section top-marg">
                     <div class="mylogo">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2000px-Instagram_logo.svg.png"  class="mylogo">
-                    </div>
+                 </div>
                     <div class="">
                         {% if user.profile.photo %}
                         <img src="{{user.profile.photo.cdn_url}}" alt="profile-photo" class="img-thumbnail rounded-circle prof">
@@ -27,7 +26,7 @@
                         <p class="log" style="display:block">Not {{request.user}}? <a href="/accounts/login/">Switch accounts</a></p>
                     </div>
                 </div>
-                </div>
+            </div>
         </div>
     </div>
 </div>

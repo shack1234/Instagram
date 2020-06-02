@@ -1,0 +1,44 @@
+{% load static %}
+{% load bootstrap4 %}
+{% load static%}
+{{ form.media }}
+<nav class="navbar navbar-expand-lg navbar-light fixed-top opaque-navbar" id="navMain">
+<div class="container navmarg">
+    <a class="smooth-scroll" href="/home"> <img src="{% static 'images/logo.png' %}" alt="" class="ig-logo"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2000px-Instagram_logo.svg.png" id="logo-name" class="brand"></a>
+  <!-- Adding a search form  -->
+  <div class="col-sm-6 col-md-6 navbar-right">
+      <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_results' %}">
+          <input class="form-control my-2 my-sm-0 search-input" name="username" type="search" placeholder="&#xf3ee; Search Users" aria-label="Search">
+      </form>
+  </div>
+  <!-- search form end -->
+      <div class="col-sm-6 col-md-4 navbar-right">
+        {% if user.is_authenticated %}
+        <ul>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Links
+                      <span class="caret"></span>
+                  </a>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <a href="{%url 'profile' username=user%}">Home</a>
+              </li>
+              <li>
+                <a href="{%url 'upload_image'%}">Upload </a>
+              </li>
+              <li>
+                <a href="/accounts/password/change">Change Password</a>
+              </li>
+              <li>
+                <a href="/logout">Logout</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        {% else %}
+        <li>
+          <a class='btn btn-default' href="/accounts/login">Login</a>
+        </li>
+        {% endif %}
+      </div>   
+</nav>

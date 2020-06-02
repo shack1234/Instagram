@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+{%load static %}
+<div class="container top-margined">
+    <div class="row edit-profile">
+        <div class="col-md-3 left">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link active side" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Edit Profile</a>
+              <a class="nav-link side" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Change Password</a>
+              {% if profile_details.photo %}
+              <img src="{{profile_details.photo.cdn_url}}" alt="profile-photo" class="img-thumbnail rounded-circle profilepic">
+              {% else %}
+              <img src="{% static 'images/avatar.jpg' %}" alt="avatar" class="img-thumbnail rounded-circle profile">
+              {% endif %}
+              <div class="">
+                  <span class="username">{{ profile_details.user.username }}</span><br>
+                  <p>
+                      {% autoescape on %}
+                      {{profile_details.bio| safe}}
+                      {% endautoescape %}
+                  </p>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-9 right">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <form action="{% url 'edit_profile' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-sm btn-primary bio" value="Submit">
+                        </div>
+                        <input type="hidden" name="next" value="/profile">
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <p> <a href="/accounts/password/change">Click here to change</a> </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

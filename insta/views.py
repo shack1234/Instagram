@@ -10,9 +10,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
-from django.core.mail import EmailMessage
 from friendship.models import Friend, Follow, Block
-from friendship.exceptions import AlreadyExistsError
 
 
 # Create your views here.
@@ -166,7 +164,7 @@ def unfollow(request,user_id):
 def like(request,image_id):
     images = Image.objects.get(id = image_id)
     liked = Likes.objects.filter(image=image_id, user=request.user).first()
-    print(liked)
+    
     if liked:
         liked.delete()
         return redirect('index')

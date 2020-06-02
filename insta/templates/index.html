@@ -40,7 +40,7 @@
                     <p class = "inline">
                     
                     {% autoescape on %}
-                    <p class ="list-inline" style="padding:5px"><strong> {{image.profile.username}}</strong>{{image.caption | safe}} <a href="#" class="desc" data-toggle="modal" data-target="#{{image.id}}" ></a> </p>
+                    <p class ="list-inline"><strong> {{image.profile.username}}</strong>{{image.caption | safe}} <a href="#" class="desc" data-toggle="modal" data-target="#{{image.id}}" ></a> </p>
                     {% endautoescape %}
                     </p>
                     <p class="clickcomment text-muted" style="cursor:pointer">

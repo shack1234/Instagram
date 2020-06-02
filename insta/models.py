@@ -45,7 +45,6 @@ class Profile(models.Model):
         return profile
 
 
-
     def __str__(self):
         return self.bio
 

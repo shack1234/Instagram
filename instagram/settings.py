@@ -40,7 +40,6 @@ UPLOADCARE = {
     'secret':'164525714322a92180cc',
 }
 
-
 # Application definition
 
 INSTALLED_APPS = [

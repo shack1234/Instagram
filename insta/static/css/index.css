@@ -9,10 +9,10 @@ html, body{
 /* Navbar styling */
 .dropdown {
     list-style: none;
-    text-overflow: clip;
+    text-overflow: none;
     text-decoration-color: #003569;
-    size: larger;
-    background-origin: padding-box;
+    size: small;
+    /* background-origin: none; */
 
 }
 

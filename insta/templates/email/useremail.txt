@@ -1,0 +1,3 @@
+Hello {{username}}
+
+Welcome to the Instagram Clone explore the cite and have fun

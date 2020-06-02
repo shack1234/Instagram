@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-title">
                         {% if image.profile.photo %}
-                        <img src="{{image.profile_det.photo.cdn_url}}" alt="profile-photo" class="img-thumbnail rounded-circle user">
+                        <img src="{{image.picture.photo.cdn_url}}" alt="profile-photo" class="img-thumbnail rounded-circle user">
                         {% else %}
                         <img src="/static/images/avatar.jpg" alt="avatar" class="img-thumbnail rounded-circle user">
                         {% endif %}
@@ -119,7 +119,6 @@
                                     <span>
                                         <i class="far fa-comment clickme"></i>
                                     </span>
-
                                     <p style="display:block"> {{image.count_likes}} likes </p>
 
                                     <p class="text-muted clickme" style="cursor:pointer">

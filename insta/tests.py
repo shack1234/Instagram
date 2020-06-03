@@ -31,6 +31,7 @@ class ProfileTestClass(TestCase):
         self.assertTrue(len(profiles)>0
 
 # Test for Image class
+
 class ImageTestClass(TestCase):
     def setUp(self):
         self.profile = Profile(bio='I am a testcase',photo='',user='')
